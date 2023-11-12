@@ -32,25 +32,33 @@ final as (
         latest_order_created_at,
 
         -- details
-        rank() over(
-            order by
-                order_count
-                desc)
+        rank()
+            over (
+                order by
+                    order_count
+                    desc
+            )
         as order_count_rank,
-        rank() over(
-            order by
-                item_quantity
-                desc)
+        rank()
+            over (
+                order by
+                    item_quantity
+                    desc
+            )
         as item_quantity_rank,
-        rank() over(
-            order by
-                customer_count
-                desc)
+        rank()
+            over (
+                order by
+                    customer_count
+                    desc
+            )
         as customer_count_rank,
-        rank() over(
-            order by
-                revenue
-                desc)
+        rank()
+            over (
+                order by
+                    revenue
+                    desc
+            )
         as revenue_rank,
 
         -- metrics

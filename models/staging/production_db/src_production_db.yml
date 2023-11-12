@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: production_db
-    database: poutineshop_raw_db
+    database: poutine_shop
     description: |
       Data from production including customers, fulfillment, shops and products.
     freshness:

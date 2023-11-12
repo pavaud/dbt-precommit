@@ -22,11 +22,7 @@ final as (
 
     from src_orders
     -- remove duplicates by keeping the most recent created_at per order_id
-    qualify
-        row_number() over (
-            partition by order_id
-            order by created_at desc
-        ) = 1
+    qualify row_number() over (partition by order_id order by created_at desc) = 1 -- noqa
 )
 
 select * from final

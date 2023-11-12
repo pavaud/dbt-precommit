@@ -49,20 +49,25 @@ final as (
         coalesce(
             agg_order_items.total_product_revenue, 0
         ) as total_product_revenue,
-        rank() over(
-            order by
-                agg_order_items.total_units_sold
-                desc)
+        rank()
+            over (
+                order by
+                    agg_order_items.total_units_sold
+                    desc
+            )
         as total_units_sold_rank,
-        rank() over(
-            order by
-                agg_order_items.total_product_revenue
-                desc)
+        rank()
+            over (
+                order by
+                    agg_order_items.total_product_revenue
+                    desc
+            )
         as total_product_revenue_rank,
         (stg_products.product_price * product_price_mapping.price_multiplier)
         as product_retail_price,
-        (stg_products.product_price * product_price_mapping.price_multiplier
-         * 1.13
+        (
+            stg_products.product_price * product_price_mapping.price_multiplier
+            * 1.13
         )
         as product_retail_price_with_tax
 

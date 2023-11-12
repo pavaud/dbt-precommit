@@ -1,0 +1,12 @@
+poutine_shop:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: postgres
+      password: coluche
+      port: 5432
+      dbname: poutine_shop
+      schema: dbt_poutine
+      threads: 4

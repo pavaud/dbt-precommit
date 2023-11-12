@@ -5,7 +5,7 @@ with src_order_items as (
 final as (
     select
         -- primary key
-        {{ dbt_utils.surrogate_key(
+        {{ dbt_utils.generate_surrogate_key(
             ['order_id', 'product_id']
         ) }} as order_item_unique_sk,
 

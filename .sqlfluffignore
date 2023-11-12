@@ -5,7 +5,10 @@ logs/
 # dependencies and virtualenvs
 dbt_packages/
 venv/
+.venv/
 
 # other
 etc/
 macros/
+analysis/
+

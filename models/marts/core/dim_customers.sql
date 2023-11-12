@@ -18,8 +18,10 @@ customers_orders as (
         sum(order_total) as sum_order_revenue,
         count(order_id) as count_orders,
         iff(
-            (count_orders >= {{ var('true_canadian_order_treshold') }}
-                or sum_order_revenue >= {{ var('true_canadian_revenue_treshold') }}),
+            (
+                count_orders >= {{ var('true_canadian_order_treshold') }}
+                or sum_order_revenue >= {{ var('true_canadian_revenue_treshold') }}
+            ),
             true,
             false
         ) as is_true_canadian
@@ -58,9 +60,9 @@ final as (
 
     from customers
     left join customers_orders
-              on customers.customer_id = customers_orders.customer_id
+        on customers.customer_id = customers_orders.customer_id
     left join customers_fulfillments
-              on customers.customer_id = customers_fulfillments.customer_id
+        on customers.customer_id = customers_fulfillments.customer_id
 )
 
 select * from final

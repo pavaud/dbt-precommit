@@ -14,7 +14,7 @@ final as (
 
     select
         -- primary key
-        {{ dbt_utils.surrogate_key(['order_items.order_item_unique_sk',
+        {{ dbt_utils.generate_surrogate_key(['order_items.order_item_unique_sk',
             'order_items.order_id']) 
         }} as orders_sk,
 

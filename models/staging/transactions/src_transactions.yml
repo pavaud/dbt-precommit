@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: transactions
-    database: poutineshop_raw_db
+    database: poutine_shop
     description: Data from production including orders and order items
     freshness:
       warn_after: {count: 48, period: hour}
